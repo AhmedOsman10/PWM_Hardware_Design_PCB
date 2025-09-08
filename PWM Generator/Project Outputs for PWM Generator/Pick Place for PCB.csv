@@ -1,0 +1,27 @@
+Altium Designer Pick and Place Locations
+E:\Mohamed Ebrahmed Altium\PWM Generator\Project Outputs for PWM Generator\Pick Place for PCB.csv
+
+========================================================================================================================
+File Design Information:
+
+Date:       11/10/24
+Time:       00:55
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mm
+
+"Designator","Comment","Layer","Footprint","Center-X(mm)","Center-Y(mm)","Rotation","Description"
+"R4","20kR","TopLayer","3296W-V","15.8479mm","8.0000mm","180","±10% 20kO Plugin Potentiometers, Variable Resistors ROHS"
+"D4","Diode","TopLayer","SOD-323","13.1495mm","13.8350mm","180","Diode 75 V 150mA Surface Mount SOD-323"
+"D3","Diode","TopLayer","SOD-323","17.0679mm","13.8350mm","180","Diode 75 V 150mA Surface Mount SOD-323"
+"U1","LM555CMX/NOPB","TopLayer","SOIC","14.0999mm","18.9150mm","180","555 Type, Timer/Oscillator (Single) IC 100kHz 8-SOIC"
+"R3","1kR","TopLayer","RES_0603","25.0999mm","12.6050mm","90","1 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film"
+"R2","1kR","TopLayer","RES_0603","3.0999mm","12.6050mm","90","1 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film"
+"R1","1kR","TopLayer","RES_0603","8.0869mm","18.0260mm","180","1 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film"
+"J2","Connector","TopLayer","WR-PHD_Pin_Header","3.0999mm","20.3120mm","90","Connector Header Through Hole 2 position 0.100" (2.54mm)"
+"J1","Connector","TopLayer","WR-PHD_Pin_Header","25.0999mm","20.3120mm","90","Connector Header Through Hole 2 position 0.100" (2.54mm)"
+"D2","LED GREEN","TopLayer","LED_GREEN","25.0999mm","15.8270mm","270","Green 520nm LED Indication - Discrete 3.2V 0603 (1608 Metric)"
+"D1","LED RED","TopLayer","LED_RED","3.0999mm","15.8270mm","270","Red 625nm LED Indication - Discrete 2V 0603 (1608 Metric)"
+"C3","68nF","TopLayer","CAP_0603","8.5079mm","20.2250mm","270","0.068 µF ±10% 50V Ceramic Capacitor X7R 0603 (1608 Metric)"
+"C2","10nF","TopLayer","CAP_0603","10.7249mm","22.8520mm","360","10000 pF ±10% 50V Ceramic Capacitor X7R 0603 (1608 Metric)"
+"C1","100nF","TopLayer","CAP_0603","8.0869mm","16.5020mm","360","0.1 µF ±10% 50V Ceramic Capacitor X7R 0603 (1608 Metric)"

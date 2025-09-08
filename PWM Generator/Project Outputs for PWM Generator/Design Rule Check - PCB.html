@@ -1,0 +1,373 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD19\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">10/10/2024</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">9:29:44 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc" class="file"><acronym title="E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc">E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Waived Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">8</td></tr>
+</table>
+</td>
+</table><a name="IDMTB2LR5HXYDQBMP3VFPERWG0VPFGAUUCKVQMAELCV5RTRMRNHJQG"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3044NM5BD4SRJISJNAXCHG5IWEZ4B0STH5P15LOJXO4CBJQ1RLHF">Clearance Constraint (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOY335Z3ZM5ZWPHLNWB0BNHFCEHLS1QVDRQZCV3DVPISVAUNRNMO">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2SUQIAMJ2KXLFTOCVUSODTS02HMMXL1LCTHGZGEE5RAHPQD5UXNL">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDSITEHSCK0JLKOQHZIGZPGQFYAKNATXFTCQCCEWGGC1G0K0UNVIKG">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUF41ZBCKNLZIK2GIEQOEL2YFQN41G3RHT1FQPGBDSC4FDGE12CGC">Width Constraint (Min=0.16mm) (Max=5mm) (Preferred=0.2mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCZ3MFKYLNNESOVRUCQDY24Y5BP5FJFOALW4RGBKIQGYBBBIFNA0H">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHVGSHTK2NDBPO3V0PES3Z10NAKHCJO3RW40Y5PG4F5C5LQDUTFPJ">Minimum Annular Ring (Minimum=0.1mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0CYYX3AKZTYTOLSI2JGIYSSQYIJT0JXODQGSEUHVY5NLFL5LCPJG">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDODFK22Z0JCL1CSZ1DFDRL2O3RIDHQPVIZ43LBPMZPO1WWLX4FIBN">Hole To Hole Clearance (Gap=0.25mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKHH0S5K2TVK3K4FYFNWMM2SLSDIF4USJJUQYR30LPUA1DM1RON">Minimum Solder Mask Sliver (Gap=0.1mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEFJP30RJHPNISQY1D4BPZXTYCRYXHPFGUEZS5G0FUXRHEASRBCP">Silk To Solder Mask (Clearance=0.11mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDD5BCE5BNXAQFNH0RXI0DY2ZJVDLHT05SOHUXYTGW2M1HMWF5OANK">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSJ4XJM2SVJEIGHIPIX3UNJOPHEVRGWOUSP1EESJMO1ZEKQLR1EXJ">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDM2U5WDL2AE2ENON4QAPDUP2AOP2DWB3X5QSOMVB5K0PZVZQE1TUO">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Waived Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDX3GLQDM2NMGRCPA3JMB5BTJ2IB2QGDYPTHKAEFG2XEB01PKT1JMG">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">8</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">8</td>
+</tr>
+</table><br><a name="IDKLFSH2RROIXFGBBZFPKKTJF3SFFUQ3BT0TVYMWBNF4Q4NDYGB4HI"><h2>Rule Violations</h2></a><a name="ID1D031OLYESMRNFZVLU21VYFM1KKYFZCLTIRWCEU2H3NYPMMTAH"><h2>Waived Violations</h2></a><a name="IDX3GLQDM2NMGRCPA3JMB5BTJ2IB2QGDYPTHKAEFG2XEB01PKT1JMG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Silk to Silk (Clearance=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=19198.538mil|Location2.X=19209.788mil|Location1.Y=28066.304mil|Location2.Y=28077.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=19198.538mil|Location2.X=19209.788mil|Location1.Y=28066.304mil|Location2.Y=28077.554mil|Absolute=True">Silk To Silk Clearance Constraint: (0.174mm &lt; 0.254mm) Between Text "D2" (26.1mm,15.027mm) on Top Overlay And Track (25.735mm,14.519mm)(25.735mm,17.237mm) on Top Overlay Silk Text to Silk Clearance [0.174mm]</acronym></a><br>Waived by Ahmed Osman at 03/10/2024 9:40:10 PM<br>It is not a problem mate</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18234.223mil|Location2.X=18245.473mil|Location1.Y=28272.247mil|Location2.Y=28283.497mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18234.223mil|Location2.X=18245.473mil|Location1.Y=28272.247mil|Location2.Y=28283.497mil|Absolute=True">Silk To Silk Clearance Constraint: (0.241mm &lt; 0.254mm) Between Text "GND|VIN" (0.608mm,22.467mm) on Top Overlay And Track (1.576mm,17.772mm)(1.576mm,22.852mm) on Top Overlay Silk Text to Silk Clearance [0.241mm]</acronym></a><br>Waived by Ahmed Osman at 03/10/2024 9:40:10 PM<br>It is not a problem mate</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18234.194mil|Location2.X=18245.444mil|Location1.Y=28273.466mil|Location2.Y=28284.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18234.194mil|Location2.X=18245.444mil|Location1.Y=28273.466mil|Location2.Y=28284.716mil|Absolute=True">Silk To Silk Clearance Constraint: (0.245mm &lt; 0.254mm) Between Text "GND|VIN" (0.608mm,22.467mm) on Top Overlay And Track (1.576mm,20.312mm)(4.624mm,20.312mm) on Top Overlay Silk Text to Silk Clearance [0.245mm]</acronym></a><br>Waived by Ahmed Osman at 03/10/2024 9:40:10 PM<br>It is not a problem mate</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18268.613mil|Location2.X=18279.863mil|Location1.Y=27933.727mil|Location2.Y=27945.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18268.613mil|Location2.X=18279.863mil|Location1.Y=27933.727mil|Location2.Y=27945.625mil|Absolute=True">Silk To Silk Clearance Constraint: (0.243mm &lt; 0.254mm) Between Text "R2" (0.4mm,11.808mm) on Top Overlay And Track (2.414mm,11.371mm)(2.414mm,11.549mm) on Top Overlay Silk Text to Silk Clearance [0.243mm]</acronym></a><br>Waived by Ahmed Osman at 03/10/2024 9:40:10 PM<br>It is not a problem mate</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18268.86mil|Location2.X=18280.11mil|Location1.Y=27939.572mil|Location2.Y=27950.822mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18268.86mil|Location2.X=18280.11mil|Location1.Y=27939.572mil|Location2.Y=27950.822mil|Absolute=True">Silk To Silk Clearance Constraint: (0.158mm &lt; 0.254mm) Between Text "R2" (0.4mm,11.808mm) on Top Overlay And Track (2.414mm,11.549mm)(2.414mm,13.835mm) on Top Overlay Silk Text to Silk Clearance [0.158mm]</acronym></a><br>Waived by Ahmed Osman at 03/10/2024 9:40:10 PM<br>It is not a problem mate</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18269.86mil|Location2.X=18281.11mil|Location1.Y=27970.375mil|Location2.Y=27981.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=18269.86mil|Location2.X=18281.11mil|Location1.Y=27970.375mil|Location2.Y=27981.625mil|Absolute=True">Silk To Silk Clearance Constraint: (0.208mm &lt; 0.254mm) Between Text "R2" (0.4mm,11.808mm) on Top Overlay And Track (2.465mm,12.59mm)(2.693mm,12.59mm) on Top Overlay Silk Text to Silk Clearance [0.208mm]</acronym></a><br>Waived by Ahmed Osman at 03/10/2024 9:40:10 PM<br>It is not a problem mate</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=19198.538mil|Location2.X=19209.788mil|Location1.Y=27970.375mil|Location2.Y=27981.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=19198.538mil|Location2.X=19209.788mil|Location1.Y=27970.375mil|Location2.Y=27981.625mil|Absolute=True">Silk To Silk Clearance Constraint: (0.174mm &lt; 0.254mm) Between Text "R3" (26.1mm,11.808mm) on Top Overlay And Track (25.506mm,12.59mm)(25.735mm,12.59mm) on Top Overlay Silk Text to Silk Clearance [0.174mm]</acronym></a><br>Waived by Ahmed Osman at 03/10/2024 9:40:10 PM<br>It is not a problem mate</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=19199.538mil|Location2.X=19210.788mil|Location1.Y=27939.572mil|Location2.Y=27950.822mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\Mohamed Ebrahmed Altium\PWM Generator\PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=19199.538mil|Location2.X=19210.788mil|Location1.Y=27939.572mil|Location2.Y=27950.822mil|Absolute=True">Silk To Silk Clearance Constraint: (0.124mm &lt; 0.254mm) Between Text "R3" (26.1mm,11.808mm) on Top Overlay And Track (25.786mm,11.371mm)(25.786mm,13.835mm) on Top Overlay Silk Text to Silk Clearance [0.124mm]</acronym></a><br>Waived by Ahmed Osman at 03/10/2024 9:40:10 PM<br>It is not a problem mate</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
